@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MongoDB Charts Embed</title>
+  <script src="https://unpkg.com/@mongodb-js/charts-embed-dom@latest/dist/charts-embed-dom.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f5f5f5;
+    }
+    #chart {
+      width: 80%;
+      height: 700px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>MongoDB Chart Example</h1>
+  <div id="chart"></div>
+  <script>
+    import ChartsEmbedSDK from "@mongodb-js/charts-embed-dom";
+
+    const sdk = new ChartsEmbedSDK({
+      baseUrl: "https://charts.mongodb.com/charts--wctqvun", // ~REPLACE~ with the Base URL from your Embed Chart dialog.
+    });
+
+    const chart = sdk.createChart({
+      chartId: "3fac8af6-0d7e-4d87-9163-8cc135a8dcf4", // ~REPLACE~ with the Chart ID from your Embed Chart dialog.
+      height: "700px",
+    });
+
+    chart.render(document.getElementById("chart"));
+  </script>
+</body>
+</html>
